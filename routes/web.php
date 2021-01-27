@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\VerificationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,6 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 //User email verification
-Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
-Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
-Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+Route::get('email/verify', [VerificationController::class,'show'])->name('verification.notice');
+Route::get('email/verify/{id}/{hash}', [VerificationController::class,'verify'])->name('verification.verify');
+Route::post('email/resend', [VerificationController::class,'resend'])->name('verification.resend');
