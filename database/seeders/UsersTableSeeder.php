@@ -20,6 +20,7 @@ class UsersTableSeeder extends Seeder
         for ($i=0; $i<count($users); $i++){
             $user = User::find($i + 1);
             $role = new UserRole([
+                'role' => 1,
                 'company_name' => $user['name'],
                 'street' => 'xx yy',
                 'city' => 'auckland',

@@ -17,11 +17,12 @@ class CreateUserRolesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('user_id')->index();
-            $table->string('company_name');
-            $table->string('street');
-            $table->string('city');
-            $table->string('country');
-            $table->integer('zip');
+            $table->boolean('role');
+            $table->string('company_name')->nullable();
+            $table->string('street')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
+            $table->integer('zip')->nullable();
         });
     }
 

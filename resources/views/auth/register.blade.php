@@ -14,10 +14,10 @@
                         <div class="form-group row">
 
                           <div class="col-md-10">
-                              <input id="type1" type="radio" class="col-md-2" name="type" value="0" checked >
-                              <label for="type1" class="col-form-label text-md-right">Personal User</label>
-                              <input id="type2" type="radio" class="col-md-2" name="type" value="1"  disabled>
-                              <label for="type2" class="col-form-label text-md-right">Business User(Not availabe)</label>
+                              <input id="role_person" type="radio" class="col-md-2" name="role" value="0" checked >
+                              <label for="role_person" class="col-form-label text-md-right">Personal User</label>
+                              <input id="role_business" type="radio" class="col-md-2" name="role" value="1"  >
+                              <label for="role_business" class="col-form-label text-md-right">Business User</label>
 
 
                           </div>

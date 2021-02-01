@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('mobile')->nullable();
-            $table->boolean('type'); // 0-personal user; 1- business user
             $table->integer('status'); // account status: disable, enable, etc...
             $table->rememberToken();
             $table->timestamps();

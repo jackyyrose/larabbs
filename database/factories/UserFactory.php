@@ -25,7 +25,6 @@ class UserFactory extends Factory
         // insert mock company records
         return [
             'name' => $this->faker->company,
-            'type' => 1,
             'status' => 1,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
