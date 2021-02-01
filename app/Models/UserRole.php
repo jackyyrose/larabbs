@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Endroid\QrCode\QrCode;
 class UserRole extends Model
 {
     use HasFactory;
@@ -46,5 +46,15 @@ class UserRole extends Model
     public function businessRoleList(){
         $list = UserRole::where('role',1)->get();
         return $list;
+    }
+
+    public function generateQR(){
+
+        $qrCode = new QrCode('Life is too short to be generating QR codes');
+        header('Content-Type: '.$qrCode->getContentType());
+        //echo $qrCode->writeString();
+        //$qrCode->writeFile(__DIR__.'/qrcode.png');
+        return $dataUri = $qrCode->writeDataUri();
+
     }
 }
