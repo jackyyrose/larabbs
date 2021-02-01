@@ -12,6 +12,18 @@
                         @csrf
 
                         <div class="form-group row">
+
+                          <div class="col-md-10">
+                              <input id="type1" type="radio" class="col-md-2" name="type" value="0" checked >
+                              <label for="type1" class="col-form-label text-md-right">Personal User</label>
+                              <input id="type2" type="radio" class="col-md-2" name="type" value="1"  disabled>
+                              <label for="type2" class="col-form-label text-md-right">Business User(Not availabe)</label>
+
+
+                          </div>
+                      </div>
+
+                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">

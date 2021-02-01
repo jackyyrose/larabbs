@@ -18,6 +18,9 @@ class User extends Authenticatable implements MustVerifyEmailContract
      * @var array
      */
     protected $fillable = [
+        'type',
+        'status',
+        'mobile',
         'name',
         'email',
         'password',
@@ -41,4 +44,28 @@ class User extends Authenticatable implements MustVerifyEmailContract
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Prepare a date for array / JSON serialization.
+     *
+     * @param  \DateTimeInterface  $date
+     * @return string
+     */
+    protected function serializeDate(\DateTimeInterface $date)
+    {
+        return $date->format($this->dateFormat ?: 'Y-m-d H:i:s');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function role()
+    {
+        /**
+         * UserRole::class related model
+         * user_id foreignKey
+         * id localKey
+         */
+        return $this->hasOne(UserRole::class, 'user_id', 'id');
+    }
 }
