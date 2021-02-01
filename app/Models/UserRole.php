@@ -42,4 +42,9 @@ class UserRole extends Model
     {
         return $date->format($this->dateFormat ?: 'Y-m-d H:i:s');
     }
+
+    public function businessRoleList(){
+        $list = UserRole::where('role',1)->get();
+        return $list;
+    }
 }

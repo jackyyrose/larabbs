@@ -56,7 +56,7 @@ class User extends Authenticatable implements MustVerifyEmailContract
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * to declare the one-to-one relation
      */
     public function role()
     {
@@ -66,5 +66,12 @@ class User extends Authenticatable implements MustVerifyEmailContract
          * id localKey
          */
         return $this->hasOne(UserRole::class, 'user_id', 'id');
+    }
+
+    /**
+     * to declare the 1-to-many relation
+     */
+    public function payment_intents(){
+        return $this->hasMany(PaymentIntent::class, 'payer_id','id');
     }
 }
