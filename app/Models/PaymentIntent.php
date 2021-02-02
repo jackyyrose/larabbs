@@ -9,6 +9,14 @@ class PaymentIntent extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'payer_id',
+        'payee_id',
+        'binded_payment_account_id',
+        'amount',
+        'status'
+    ];
+
     public function user(){
         return $this->belongsTo(User::class);
     }

@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('mobile')->nullable();
             $table->integer('status'); // account status: disable, enable, etc...
+            $table->double('balance')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

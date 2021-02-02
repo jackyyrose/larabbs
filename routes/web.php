@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\PaymentsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +20,8 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 */
 
 Route::get('/', [PagesController::class,'root'])->name('root');
-
+Route::get('payments/create/{hash?}',[PaymentsController::class, 'create'])->name('payments.create');
+Route::post('payments',[PaymentsController::class, 'store'])->name('payments.store');
 //Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

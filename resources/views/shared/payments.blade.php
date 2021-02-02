@@ -14,3 +14,5 @@
 @else
 <p>No payment history!</p>
 @endif
+
+@include('shared.qrscanner')

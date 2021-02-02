@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Endroid\QrCode\QrCode;
+use Illuminate\Support\Facades\Crypt;
 class UserRole extends Model
 {
     use HasFactory;
@@ -50,7 +51,9 @@ class UserRole extends Model
 
     public function generateQR(){
 
-        $qrCode = new QrCode('Life is too short to be generating QR codes');
+        $qrCode = new QrCode('' . Route('payments.create') . '/' . Crypt::encryptString($this->user_id));
+        $qrCode->setSize(250);
+        $qrCode->setMargin(10);
         header('Content-Type: '.$qrCode->getContentType());
         //echo $qrCode->writeString();
         //$qrCode->writeFile(__DIR__.'/qrcode.png');

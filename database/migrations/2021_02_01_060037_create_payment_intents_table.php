@@ -20,7 +20,7 @@ class CreatePaymentIntentsTable extends Migration
             $table->integer('payee_id');
             $table->integer('binded_payment_account_id');// 0:balance, 1:card, 2:alipay,...
             $table->double('amount');
-            $table->boolean('status');
+            $table->boolean('status')->default(0);
         });
     }
 
